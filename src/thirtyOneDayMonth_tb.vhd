@@ -93,7 +93,50 @@ begin
 		w_sw <= x"0"; wait for 10 ns;
             assert w_Y = '0' report "error on x0" severity failure;
         w_sw <= x"1"; wait for 10 ns;
-            assert w_Y = '1' report "error on Jan" severity failure;   
+            assert w_Y = '1' report "error on Jan" severity failure;
+            
+        w_sw <= x"2"; wait for 10 ns;
+		assert w_Y = '0' report "error on Feb" severity failure;
+
+		-- Row 3: Mar (31 days)
+		w_sw <= x"3"; wait for 10 ns;
+		assert w_Y = '1' report "error on Mar" severity failure;
+
+		-- Row 4: Apr (30 days)
+		w_sw <= x"4"; wait for 10 ns;
+		assert w_Y = '0' report "error on Apr" severity failure;
+
+		-- Row 5: May (31 days)
+		w_sw <= x"5"; wait for 10 ns;
+		assert w_Y = '1' report "error on May" severity failure;
+
+		-- Row 6: Jun (30 days)
+		w_sw <= x"6"; wait for 10 ns;
+		assert w_Y = '0' report "error on Jun" severity failure;
+
+		-- Row 7: Jul (31 days)
+		w_sw <= x"7"; wait for 10 ns;
+		assert w_Y = '1' report "error on Jul" severity failure;
+
+		-- Row 8: Aug (31 days)
+		w_sw <= x"8"; wait for 10 ns;
+		assert w_Y = '1' report "error on Aug" severity failure;
+
+		-- Row 9: Sep (30 days)
+		w_sw <= x"9"; wait for 10 ns;
+		assert w_Y = '0' report "error on Sep" severity failure;
+
+		-- Row 10: Oct (31 days)
+		w_sw <= x"A"; wait for 10 ns;
+		assert w_Y = '1' report "error on Oct" severity failure;
+
+		-- Row 11: Nov (30 days)
+		w_sw <= x"B"; wait for 10 ns;
+		assert w_Y = '0' report "error on Nov" severity failure;
+
+		-- Row 12: Dec (31 days)
+		w_sw <= x"C"; wait for 10 ns;
+		assert w_Y = '1' report "error on Dec" severity failure;  
 
 		wait; -- wait forever
 	end process;	
